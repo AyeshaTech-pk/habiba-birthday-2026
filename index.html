@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8bfd5">
+    <title>For Habiba 💗</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-hearts" aria-hidden="true"></div>
+
+    <main class="birthday-card">
+        <div class="dotted-border" aria-hidden="true"></div>
+
+        <!-- 01. Passcode -->
+        <section class="page active" id="passcodePage">
+            <p class="eyebrow">A tiny secret awaits...</p>
+            <h1>Enter a passcode 💗</h1>
+            <p class="soft-text">
+                Only Habiba can unlock this little surprise.
+            </p>
+
+            <div class="bear-stage passcode-stage">
+                <img
+                    src="pictures/glasses_transparent.png"
+                    class="scene-image glasses-image animate-float"
+                    alt="Two cute bears wearing sunglasses"
+                >
+            </div>
+
+            <label for="passcode">Your birthday date</label>
+            <input
+                id="passcode"
+                type="text"
+                inputmode="numeric"
+                maxlength="12"
+                placeholder="DD / MM"
+                autocomplete="off"
+            >
+
+            <button class="btn" type="button" onclick="checkPasscode()">
+                Unlock ✨
+            </button>
+
+            <p class="hint">Hint: 25 August 🎂</p>
+        </section>
+
+        <!-- 02. Wrong passcode -->
+        <section class="page" id="wrongPage">
+            <p class="eyebrow">Oops...</p>
+            <h1>Wrong passcode!</h1>
+            <p class="soft-text">
+                Someone forgot their own birthday 😭
+            </p>
+
+            <div class="bear-stage wrong-stage">
+                <img
+                    src="pictures/bonk_transparent.png"
+                    class="scene-image bonk-image animate-bonk"
+                    alt="One cute bear teasing another bear"
+                >
+            </div>
+
+            <button class="btn" type="button" onclick="showPage('passcodePage')">
+                Try Again 💗
+            </button>
+        </section>
+
+        <!-- 03. Special question -->
+        <section class="page" id="questionPage">
+            <p class="eyebrow">Hey Habiba...</p>
+            <h1>
+                I made something<br>
+                special for you ✨
+            </h1>
+            <p class="question-text">Do you want to see it?</p>
+
+            <div class="bear-stage special-stage">
+                <img
+                    src="pictures/telephone_transparent.png"
+                    class="scene-image telephone-image animate-float"
+                    alt="Two cute bears connected by a heart telephone"
+                >
+            </div>
+
+            <div class="choice-row">
+                <button class="btn" type="button" onclick="showPage('birthdayPage')">
+                    YES 💗
+                </button>
+                <button class="btn btn-no" type="button" onclick="showPage('noPage')">
+                    NO 🙃
+                </button>
+            </div>
+        </section>
+
+        <!-- 04. No option -->
+        <section class="page" id="noPage">
+            <p class="eyebrow">Excuse me?! 😭</p>
+            <h1>Why did you click NO?</h1>
+            <p class="soft-text">
+                The bears are officially offended now.
+            </p>
+
+            <div class="bear-stage no-stage">
+                <img
+                    src="pictures/bonk_transparent.png"
+                    class="scene-image bonk-image animate-bonk"
+                    alt="Cute bear reacting dramatically"
+                >
+            </div>
+
+            <button class="btn" type="button" onclick="showPage('questionPage')">
+                Try Again 💗
+            </button>
+        </section>
+
+        <!-- 05. Birthday -->
+        <section class="page" id="birthdayPage">
+            <p class="eyebrow">Today is your day!</p>
+            <h1 class="birthday-title">
+                Happy Birthday<br>
+                <span>Habiba! 🎂</span>
+            </h1>
+            <p class="soft-text">
+                May your day be as lovely, warm and adorable as you are.
+            </p>
+
+            <div class="bear-stage birthday-stage">
+                <img
+                    src="pictures/cake_transparent.png"
+                    class="scene-image cake-image animate-cake"
+                    alt="Two cute bears celebrating with a birthday cake"
+                >
+            </div>
+
+            <button class="btn" type="button" onclick="showPage('wishPage')">
+                Click Me 💌
+            </button>
+        </section>
+
+        <!-- 06. Gift -->
+        <section class="page" id="wishPage">
+            <p class="eyebrow">A little something for you...</p>
+            <h1>My wish for you 💗</h1>
+            <p class="soft-text">
+                I kept something special inside this little box.
+            </p>
+
+            <div class="gift-scene">
+                <img
+                    src="pictures/glasses_transparent.png"
+                    class="gift-bears"
+                    alt="Two cute bears waiting beside a gift"
+                >
+
+                <button
+                    class="gift-box"
+                    type="button"
+                    onclick="openGift()"
+                    aria-label="Open your birthday gift"
+                >
+                    <span class="gift-bow">🎀</span>
+                    <span class="gift-lid"></span>
+                    <span class="gift-body"></span>
+                    <span class="gift-ribbon-v"></span>
+                    <span class="gift-ribbon-h"></span>
+                    <span class="gift-open-text">OPEN 💗</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 07. Virtual hug -->
+        <section class="page" id="hugPage">
+            <p class="eyebrow">One more thing...</p>
+            <h1>
+                A virtual hug<br>
+                for you 🫂
+            </h1>
+            <p class="soft-text">
+                A warm little hug, delivered through the screen.
+            </p>
+
+            <div class="hug-stage">
+                <img
+                    src="pictures/hug_bears.png"
+                    class="hug-image"
+                    alt="Two cute bears hugging each other"
+                >
+                <span class="floating-heart heart-one">♥</span>
+                <span class="floating-heart heart-two">♥</span>
+            </div>
+
+            <p class="hug-caption">
+                Consider yourself officially hugged. 🤎
+            </p>
+
+            <button class="btn" type="button" onclick="showPage('memoriesPage')">
+                Click Me 📸
+            </button>
+        </section>
+
+        <!-- 08. Memories -->
+        <section class="page memories-page" id="memoriesPage">
+            <div class="memory-header">
+                <p class="eyebrow">The best part...</p>
+                <h1>Our Memories 💗</h1>
+                <p class="soft-text">
+                    Nine little photo memories and three video memories.
+                </p>
+            </div>
+
+            <div class="memory-scroll">
+                <div class="memory-grid">
+                    <button class="memory-card" type="button" onclick="openMedia('image', 'pictures/photo-01.jpg', 'Memory 1')">
+                        <img src="pictures\Photo-01.jpeg" alt="Memory 1">
+                    </button>
+                    <button class="memory-card" type="button" onclick="openMedia('image', 'pictures/photo-02.jpg', 'Memory 2')">
+                        <img src="pictures/photo-02.jpeg" alt="Memory 2">
+                    </button>
+                    <button class="memory-card" type="button" onclick="openMedia('image', 'pictures/photo-03.jpg', 'Memory 3')">
+                        <img src="pictures/photo-03.jpeg" alt="Memory 3">
+                    </button>
+                    <button class="memory-card" type="button" onclick="openMedia('image', 'pictures/photo-04.jpg', 'Memory 4')">
+                        <img src="pictures/photo-04.jpeg" alt="Memory 4">
+                    </button>
+                    <button class="memory-card" type="button" onclick="openMedia('image', 'pictures/photo-05.jpg', 'Memory 5')">
+                        <img src="pictures/photo-05.jpeg" alt="Memory 5">
+                    </button>
+                    <button class="memory-card" type="button" onclick="openMedia('image', 'pictures/photo-06.jpg', 'Memory 6')">
+                        <img src="pictures/photo-06.jpeg" alt="Memory 6">
+                    </button>
+                    <button class="memory-card" type="button" onclick="openMedia('image', 'pictures/photo-07.jpg', 'Memory 7')">
+                        <img src="pictures/photo-07.jpeg" alt="Memory 7">
+                    </button>
+                    <button class="memory-card" type="button" onclick="openMedia('image', 'pictures/photo-08.jpg', 'Memory 8')">
+                        <img src="pictures/photo-08.jpeg" alt="Memory 8">
+                    </button>
+                    <button class="memory-card" type="button" onclick="openMedia('image', 'pictures/photo-09.jpg', 'Memory 9')">
+                        <img src="pictures/photo-09.jpeg" alt="Memory 9">
+                    </button>
+
+                    <button class="memory-card video-card" type="button" onclick="openMedia('video', 'pictures/video-01.mp4', 'Memory 10')">
+                        <span class="play-icon">▶</span>
+                        <span>Memory 10</span>
+                    </button>
+                    <button class="memory-card video-card" type="button" onclick="openMedia('video', 'pictures/video-02.mp4', 'Memory 11')">
+                        <span class="play-icon">▶</span>
+                        <span>Memory 11</span>
+                    </button>
+                    <button class="memory-card video-card" type="button" onclick="openMedia('video', 'pictures/video-03.mp4', 'Memory 12')">
+                        <span class="play-icon">▶</span>
+                        <span>Memory 12</span>
+                    </button>
+                </div>
+
+                <div class="final-bears">
+                    <img
+                        src="pictures/glasses_transparent.png"
+                        alt="Two cute bears wearing sunglasses"
+                    >
+                </div>
+
+                <button class="btn" type="button" onclick="showPage('thanksPage')">
+                    One Last Thing 💗
+                </button>
+
+                <p class="footer-note">
+                    Made specially for Habiba • 25 August 💗
+                </p>
+            </div>
+        </section>
+
+        <!-- 09. Thanks -->
+        <section class="page" id="thanksPage">
+            <p class="eyebrow">Before you go...</p>
+            <h1>
+                Thanks for<br>
+                <span>being you 💗</span>
+            </h1>
+            <p class="soft-text">
+                Thank you for being the lovely, funny and unforgettable person you are.
+            </p>
+
+            <div class="bear-stage thanks-stage">
+                <img
+                    src="pictures/glasses_transparent.png"
+                    class="scene-image thanks-image animate-float"
+                    alt="Two cute bears wearing sunglasses"
+                >
+            </div>
+
+            <p class="thanks-line">
+                Keep smiling, keep shining and keep being YOU. ✨
+            </p>
+
+            <button class="btn" type="button" onclick="showPage('passcodePage')">
+                Replay 💞
+            </button>
+        </section>
+    </main>
+
+    <!-- Gift / Wish modal -->
+    <div class="modal gift-modal" id="giftModal" aria-hidden="true">
+        <div class="modal-card wish-modal-card">
+            <button class="close-button" type="button" onclick="closeGift()">×</button>
+
+            <p class="eyebrow">You opened it! 🎀</p>
+            <h2>My wish for you 💗</h2>
+
+            <div class="wish-box">
+                <p>Dear Habiba, 💗</p>
+                <p>
+                    Happy Birthday to the one who knows me better anyone else. You have been my shoulder
+                    to cry on, partner in laughter, and my constant source of strength.
+                </p>
+                <p>
+                    Life would not be same without your love, support and countless memories we have created together.
+
+                </p>
+                <p>
+                   I thank God every day for blessing  a best friend like you. 🌷
+                </p>
+                <p>
+                  May your birthday be filled  with all the joy you bring into the life of others, because you deserve nothing less than the absolute best
+
+                </p>
+                <p>
+                    Happy Birthday once again! Keep smiling, keep shining and never stop being you. ✨
+                </p>
+                <p class="signature">— With lots of love 💗 
+                    From:<span class="signature-name" >Ayesha</span>
+                </p>
+            </div>
+
+            <button class="btn" type="button" onclick="continueFromWish()">
+                Next 🫂
+            </button>
+        </div>
+    </div>
+
+    <!-- Fullscreen media viewer -->
+    <div class="modal media-modal" id="mediaModal" aria-hidden="true">
+        <div class="modal-card media-modal-card">
+            <button class="close-button" type="button" onclick="closeMedia()">×</button>
+            <div id="mediaContent"></div>
+            <p id="mediaTitle" class="media-title"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
